@@ -1,17 +1,17 @@
-{% set version = "0.1.0" %}
+{% set version = "1.0.0" %}
 
 package:
   name: cc-plugin-ugrid
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/c/cc-plugin-ugrid/cc-plugin-ugrid-{{ version }}.tar.gz
-  sha256: f99c2bae8c67d6928214fda2884f807781453f7a1856bbb5d2a4b3dad1efccfa
+  url: https://github.com/ioos/cc-plugin-ugrid/archive/v{{ version }}.tar.gz
+  sha256: e6fdc0b80eef0a81c3e1bf11c90baa8f3b8fdd498d3fb78e71e22d61196d5d45
 
 build:
   number: 0
   noarch: python
-  script: python -m pip install --no-deps --ignore-installed .
+  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
   host:
@@ -20,8 +20,8 @@ requirements:
   run:
     - python
     - setuptools
-    - compliance-checker >=2.0.0
-    - netcdf4 >=1.2.0
+    - compliance-checker >=4.0.0
+    - netcdf4 >=1.4.0
 
 test:
   imports:
