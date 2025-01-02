@@ -9,21 +9,23 @@ source:
   sha256: e6fdc0b80eef0a81c3e1bf11c90baa8f3b8fdd498d3fb78e71e22d61196d5d45
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: "{{ PYTHON }} -m pip install . --no-deps -vv"
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
     - pip
   run:
-    - python
+    - python >={{ python_min }}
     - setuptools
     - compliance-checker >=4.0.0
     - netcdf4 >=1.4.0
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - cc_plugin_ugrid
 
