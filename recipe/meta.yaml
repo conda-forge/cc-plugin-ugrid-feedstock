@@ -6,7 +6,7 @@ package:
 
 source:
   url: https://github.com/ioos/cc-plugin-ugrid/archive/v{{ version }}.tar.gz
-  sha256: b7e82946c7ffe6d08d5b9d723a26deb942c040cec7977218079da4be59aac0bb
+  sha256: a42427bbb9c96e4c380d05f417c68922087e34dcaab40a5f9c6de734d3f66e64
 
 build:
   number: 1
