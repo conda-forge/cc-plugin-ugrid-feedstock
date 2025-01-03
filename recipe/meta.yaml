@@ -6,24 +6,27 @@ package:
 
 source:
   url: https://github.com/ioos/cc-plugin-ugrid/archive/v{{ version }}.tar.gz
-  sha256: e6fdc0b80eef0a81c3e1bf11c90baa8f3b8fdd498d3fb78e71e22d61196d5d45
+  sha256: a42427bbb9c96e4c380d05f417c68922087e34dcaab40a5f9c6de734d3f66e64
 
 build:
-  number: 0
+  number: 1
   noarch: python
-  script: "{{ PYTHON }} -m pip install . --no-deps -vv"
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
 requirements:
   host:
-    - python
+    - python {{ python_min }}
+    - setuptools
     - pip
   run:
-    - python
+    - python >={{ python_min }}
     - setuptools
     - compliance-checker >=4.0.0
     - netcdf4 >=1.4.0
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - cc_plugin_ugrid
 
