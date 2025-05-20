@@ -1,4 +1,4 @@
-{% set version = "1.0.0" %}
+{% set version = "1.1.0" %}
 
 package:
   name: cc-plugin-ugrid
@@ -6,10 +6,10 @@ package:
 
 source:
   url: https://github.com/ioos/cc-plugin-ugrid/archive/v{{ version }}.tar.gz
-  sha256: a42427bbb9c96e4c380d05f417c68922087e34dcaab40a5f9c6de734d3f66e64
+  sha256: 766253279b082953220a774658b75a4b77821017abac2fc4b63fd67e2d2d7cca
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
 
